@@ -9,12 +9,21 @@ const FormPage = () => {
     phone_number: "",
   });
 
+  const [loading, setLoading] = useState(false);
+
   const handleSubmit = (e) => {
     e.preventDefault();
+    setLoading(true);
     postUserData(formData).then(() => {
       alert("User data submitted successfully!");
       setFormData({ first_name: "", last_name: "", address: "", phone_number: "" });
-    });
+      setLoading(false);
+    })
+      .catch((error) => {
+        console.error("Error submitting user data:", error);
+        alert("Error submitting user data. Please try again.");
+        setLoading(false);
+      });
   };
 
   return (
@@ -49,9 +58,19 @@ const FormPage = () => {
           value={formData.phone_number}
           onChange={(e) => setFormData({ ...formData, phone_number: e.target.value })}
         />
-        <button type="submit" className="btn btn-primary">
-          Submit
-        </button>
+        <div className="text-center">
+          <button type="submit" className="btn btn-primary text-center">
+            Submit
+            {
+              loading && (
+                <div class="spinner-border spinner-border-sm ms-2" role="status">
+                  <span class="visually-hidden">Loading...</span>
+                </div>
+              )
+            }
+          </button>
+        </div>
+
       </form>
     </div>
   );

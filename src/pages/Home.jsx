@@ -30,7 +30,7 @@ const Home = () => {
       <input
         type="text"
         className="form-control"
-        placeholder="Enter search terms..."
+        placeholder="Enter Name to Search .."
         style={{ width: "50%", margin: "20px auto" }}
         value={searchTerm}
         onChange={handleSearchChange} // Update search term
