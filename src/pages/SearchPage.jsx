@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import SearchResults from './SearchResults';
 import { fetchUserData, fetchUserDataByName } from '../utils/api';
-import logo from '../assets/logo.png';
 
-const Home = () => {
+const SearchPage = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [loading, setLoading] = useState(true);
   const [users, setUsers] = useState([]);
@@ -63,13 +62,13 @@ const Home = () => {
       }}
     >
       {/* Header Section */}
-      <div
+      {/* <div
         className="text-center d-flex flex-row justify-content-center align-items-center"
         style={{ padding: '5px 0', flexShrink: 0 }}
       >
-        <img src={logo} alt="Girman Technologies" style={{ width: '20vw', height: '20vw' }} />
-        <div style={{ fontSize: '10vw', fontWeight: 'bold', marginLeft: '10px' }}>Girman</div>
-      </div>
+        <img src={logo} alt="Girman Technologies" style={{ width: '200px', height: '200px' }} />
+        <div style={{ fontSize: '100px', fontWeight: 'bold', marginLeft: '10px' }}>Girman</div>
+      </div> */}
 
       {/* Main Content with Scrollable Area */}
       <div
@@ -100,4 +99,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default SearchPage;

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import UserCard from "../components/UserCard";
 import { fetchUserData } from "../utils/api";
+import "./results.css";
 
 const SearchResults = ({ searchTerm , users , setUsers }) => {
 
@@ -12,9 +13,9 @@ const SearchResults = ({ searchTerm , users , setUsers }) => {
   );
 
   return (
-    <div className="container">
-      <h2 className="text-center my-4">Search Results</h2>
-      <div className="row">
+    <div className=" ">
+     
+      <div className="customgrid ">
         {filteredUsers.length > 0 ? (
           filteredUsers.map((user) => (
             <UserCard key={user._id} user={user} />
